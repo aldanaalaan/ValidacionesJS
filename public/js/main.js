@@ -42,7 +42,7 @@ txtSueldo.addEventListener("blur", () => {
 });
 
 btn.addEventListener("click", () => {
-    socket.emit("eSueldo", txtSueldo.value);
+    socket.emit("eRetencion", txtSueldo.value);
 });
 // Recibir los eventos
 socket.on("eNombre", (data) => {

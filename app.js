@@ -16,7 +16,7 @@ const server = app.listen(PORT, () => {
     try {
         console.log(
             `Network: http://${
-                os.networkInterfaces()["Wi-Fi"][1].address || null
+                os.networkInterfaces()["Wi-Fi"][3].address || null
             }:${PORT}`
         );
     } catch (error) {
@@ -30,15 +30,12 @@ io.on("connection", (socket) => {
         let mensajes = "";
         if (/^[a-zA-Z]/.test(data) || data === "") {
             if (data.length < 4 || data.length > 255) {
-                //alert("El nombre solo puede incluír de 4 a 255 caracteres");
                 mensajes +=
                     "<p class='incorrecto'>Nombre invalido. El nombre de incluír de 4 a 255 caracteres</p></br>";
             } else {
-                //alert(`El nombre "${data}" es válido\nSu nombre ha sido recibido`);
                 mensajes = `<p class='correcto'>El nombre "${data}" es valido</p>`;
             }
         } else {
-            //alert("El nombre solo puede incluir letras");
             mensajes += "<p class='incorrecto'>Nombre invalido</p></br>";
         }
         socket.emit("eNombre", mensajes);
@@ -88,12 +85,9 @@ io.on("connection", (socket) => {
         if (/^\d+$/.test(data)) {
             if (parseInt(data) < 18) {
                 mensajes += `<p class='incorrecto'>La edad "${data}" es inválida. Debes tener al menos 18 años</p>`;
-                //alert("Debes tener al menos 18 años");
             } else if (parseInt(data) > 67) {
-                //alert(`${data} excede la edad mínima requerida`);
                 mensajes += `<p class='incorrecto'>La edad "${data}" excede la edad mínima requerida</p>`;
             } else {
-                //alert("Edad recibida");
                 mensajes += `<p class='correcto'>La edad "${data}" es válida</p>`;
             }
         } else {
@@ -105,7 +99,6 @@ io.on("connection", (socket) => {
     socket.on("eSueldo", (data) => {
         mensajes = "";
         if (parseInt(data) < 1000 || data.length < 3) {
-            //alert(`El sueldo ingresado es menor a la sueldo mínimo permitido`);
             mensajes += `<p class='incorrecto'>El sueldo ${data} es menor a la sueldo mínimo permitido`;
         } else if (parseInt(data) > 6000) {
             mensajes += `<p class='incorrecto'>${data} excede el sueldo máximo permitido`;
@@ -117,7 +110,13 @@ io.on("connection", (socket) => {
 
     socket.on("eRetencion", (data) => {
         let mensajes = "";
-        if (parseInt(data) < 1000 || data.length < 3 || parseInt(data) > 6000) {
+        if (
+            parseInt(data) < 1000 ||
+            data.length < 3 ||
+            parseInt(data) > 6000
+        ) {
+            //Hace lo mismo que en la anterior clase para ver que el campo de texto sirva
+            console.log(`El sueldo ingresado no es válido para retención`);
             mensajes += `<p class='incorrecto'>El sueldo ingresado no es válido para retención.\nDebe ser un valor entre 1000 y 6000</p>`;
         } else if (parseInt(data) >= 1000) {
             //Verifica si aparte de se mayor a 1000, es mayor a 2000
