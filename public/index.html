@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Validación Datos JS</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <h1>Validación de datos</h1>
+        <div>
+            Ingresa tu nombre:
+            <input type="text" name="nombre" id="nombre" />
+            <div id="msgnombre"></div>
+
+            <br />
+            Ingresa tu despacho:
+            <input type="text" name="despacho" id="despacho" />
+            <div id="msgdespacho"></div>
+            <br />
+            Ingresa tu puesto:
+            <input type="text" name="puesto" id="puesto" />
+            <div id="msgpuesto"></div>
+            <br />
+            Ingresa tu edad:
+            <input type="text" name="edad" id="edad" />
+            <div id="msgedad"></div>
+            <br />
+            Ingresa tu sueldo:
+            <input type="text" name="sueldo" id="sueldo" />
+            <div id="msgsueldo"></div>
+            <br />
+            Retención:
+            <div id="msgretencion"></div>
+            <br />
+            <input type="button" id="btnFinal" value="Evaluar TODO" />
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
