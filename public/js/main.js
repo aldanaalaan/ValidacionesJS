@@ -21,23 +21,23 @@ const btn = document.getElementById("btnFinal");
 
 //# Eventos
 //* Cada entrada tiene su propio evento al perder el foco
-txtNombre.addEventListener("blur", () => {
+txtNombre.addEventListener("input", () => {
     socket.emit("eNombre", txtNombre.value);
 });
 
-txtDespacho.addEventListener("blur", () => {
+txtDespacho.addEventListener("input", () => {
     socket.emit("eDespacho", txtDespacho.value);
 });
 
-txtPuesto.addEventListener("blur", () => {
+txtPuesto.addEventListener("input", () => {
     socket.emit("ePuesto", txtPuesto.value);
 });
 
-txtEdad.addEventListener("blur", () => {
+txtEdad.addEventListener("input", () => {
     socket.emit("eEdad", txtEdad.value);
 });
 
-txtSueldo.addEventListener("blur", () => {
+txtSueldo.addEventListener("input", () => {
     socket.emit("eSueldo", txtSueldo.value);
 });
 
