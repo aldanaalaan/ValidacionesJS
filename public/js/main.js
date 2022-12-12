@@ -39,6 +39,7 @@ txtEdad.addEventListener("input", () => {
 
 txtSueldo.addEventListener("input", () => {
     socket.emit("eSueldo", txtSueldo.value);
+    msgRetencion.innerHTML = "";
 });
 
 btn.addEventListener("click", () => {
